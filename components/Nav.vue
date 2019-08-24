@@ -1,9 +1,9 @@
 <template>
   <nav>
-
+    <Toolbar :id="id" />
     <div v-if="type === 'location'">
 
-      <div class="fixed w-full z-20">
+      <div class="fixed w-full z-20 top-0 left-0">
         <div class="w-11/12 mx-auto py-4 flex justify-between items-center">
 
           <div>
@@ -35,7 +35,7 @@
     </div>
 
     <div v-if="type === 'simple'">
-      <div class="fixed w-full z-20">
+      <div class="fixed w-full z-20 top-0 left-0">
         <div class="w-11/12 mx-auto py-2 flex justify-between items-center">
 
           <div>
@@ -63,15 +63,18 @@
 
 <script>
   import Icon from '~/components/Icon.vue'
+  import Toolbar from '~/components/Toolbar.vue'
 
   export default {
     name: 'Nav',
     components: {
-      Icon
+      Icon,
+      Toolbar
     },
     props: [
       'type',
-      'hasLogo'
+      'hasLogo',
+      'id'
     ]
   }
 </script>

@@ -6,9 +6,9 @@
         <section class="min-h-screen flex items-center bg-gray-500 bg-cover bg-center" v-bind:style="{ backgroundImage: `url(${cover})` }">
           <div class="w-11/12 mx-auto max-w-6xl flex flex-col md:flex-row justify-center py-20 relative z-20">
             <div class="w-full md:w-6/12 mr-10 text-center md:text-left mb-2 md:mb-0">
-              <h3 class="text-xl font-bold font-title subtitle">{{ subtitle }}</h3>
-              <h2 class="text-3xl md:text-5xl font-bold leading-tight py-2 font-title title">{{ title }}</h2>
-              <p class="text-lg description">{{ description }}</p>
+              <h3 class="text-xl font-bold font-title subtitle" contenteditable="true">{{ subtitle }}</h3>
+              <h2 class="text-3xl md:text-5xl font-bold leading-tight py-2 font-title title" contenteditable="true">{{ title }}</h2>
+              <p class="text-lg description" contenteditable="true">{{ description }}</p>
             </div>
 
             <div class="w-full md:w-4/12">
@@ -79,7 +79,9 @@
         title: "Diseño profesional para redes sociales ilimitado.",
         subtitle: "Destaca entre la competencia",
         description: "Este verano obtén la instalación de tu clima en monterrey a un precio exageradamente barato. No te dejes engañar por la competencía nosotros somos los mejores instalando climas.",
-        cover: "https://images.unsplash.com/photo-1562184760-a11b3cf7c169?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+        cover: "https://images.unsplash.com/photo-1562184760-a11b3cf7c169?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        bgColor_A: "rgba(0,0,255,0.5)",
+        bgColor_B: "rgba(0,0,0,0.5)"
       }
     },
     components: {
@@ -87,8 +89,6 @@
     },
     props: [
       'type',
-      'bgColor_A',
-      'bgColor_B',
       'id'
     ],
     computed: {

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-for="option in options">
-      <div class="h-48 w-64 bg-gray-500 flex items-center justify-center rounded-lg mb-2">
-        <h3>{{ option.name }}</h3>
+      <div class="w-48  py-5 bg-gray-500 flex items-center justify-center rounded-lg mb-2 flex-col">
+        <h3 class="font-bold text-white uppercase pb-2">{{ option.name }}</h3>
         <button value="1" @click="addBlock(option.type ,option.name)" class="bg-black text-white rounded p-2 font-bold">Seleccionar</button>
       </div>
     </div>
@@ -19,9 +19,6 @@
       return {
         id: 1,
       }
-    },
-    created() {
-      // console.log(this.componentId);
     },
     computed: {
       options () {
