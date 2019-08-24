@@ -95,6 +95,30 @@ export const state = () => ({
           isPro: false,
         },
       ]
+    },
+    {
+      name: "Features",
+      id: 5,
+      types: [
+        {
+          type: 'Features',
+          name: "list",
+          cover: null,
+          isPro: false
+        }
+      ]
+    },
+    {
+      name: "Pricing",
+      id: 6,
+      types: [
+        {
+          type: 'Pricing',
+          name: "simple",
+          cover: null,
+          isPro: false
+        }
+      ]
     }
   ]
 })

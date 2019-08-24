@@ -1,6 +1,7 @@
 <template>
   <section>
-
+    <Toolbar :id="id" />
+    
     <div v-if="type === 'simple-right'" class="py-5 section">
       <div class="w-11/12 mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-center py-20">
         <div class="w-full md:w-1/2">
@@ -41,11 +42,17 @@
 </template>
 
 <script>
+import Toolbar from '~/components/Toolbar.vue'
+
 export default {
   name: 'Content',
   props: [
-    'type'
+    'type',
+    'id'
   ],
+  components: {
+    Toolbar
+  },
   data() {
     return {
       image: "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",

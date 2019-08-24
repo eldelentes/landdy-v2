@@ -1,6 +1,7 @@
 <template>
     <div class="relative">
-      <button class="right-0 absolute bg-white p-1 shadow text-red-500 rounded font-bold z-20" v-on:click="remove(id)">Remove</button>
+      <Toolbar :id="id" />
+      
       <div v-if="type === 'form'">
         <section class="min-h-screen flex items-center bg-gray-500 bg-cover bg-center" v-bind:style="{ backgroundImage: `url(${cover})` }">
           <div class="w-11/12 mx-auto max-w-6xl flex flex-col md:flex-row justify-center py-20 relative z-20">
@@ -69,6 +70,8 @@
 </template>
 
 <script>
+  import Toolbar from '~/components/Toolbar.vue'
+
   export default {
     name: 'Hero',
     data: function () {
@@ -79,6 +82,9 @@
         cover: "https://images.unsplash.com/photo-1562184760-a11b3cf7c169?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
       }
     },
+    components: {
+      Toolbar
+    },
     props: [
       'type',
       'bgColor_A',
@@ -88,11 +94,6 @@
     computed: {
       coverGradient(){
         return `linear-gradient(0deg, ${ this.bgColor_B } 0%, ${ this.bgColor_A } 100%)`
-      }
-    },
-    methods: {
-      remove(id) {
-        this.$emit('remove', id)      
       }
     }
   }

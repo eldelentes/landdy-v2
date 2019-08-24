@@ -1,5 +1,7 @@
 <template>
   <section class="section">
+    <Toolbar :id="id" />
+
     <div v-if="type === 'list'" class="py-5">
       <div class="w-11/12 mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-center py-20">
         <div>
@@ -21,11 +23,17 @@
 </template>
 
 <script>
+  import Toolbar from '~/components/Toolbar.vue'
+
   export default {
     name: 'Features',
     props: [
-      'type'
+      'type',
+      'id'
     ],
+    components: {
+      Toolbar
+    },
     data() {
       return {
         title: "Servicios",

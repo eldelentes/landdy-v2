@@ -1,8 +1,7 @@
 <template>
   <section class="section">
-
-    <button class="right-0 absolute bg-white p-1 shadow text-red-500 rounded font-bold" v-on:click="remove(id)">Remove</button>
-
+    <Toolbar :id="id" />
+    
     <div class="py-5 flex items-center justify-center" v-if="type === 'simple'">
       <div class="text-center w-11/12 md:w-1/2">
         <div class="flex justify-center">
@@ -59,6 +58,7 @@
 
 <script>
   import Icon from '~/components/Icon.vue'
+  import Toolbar from '~/components/Toolbar.vue'
   
   export default {
     name: 'Reviews',
@@ -67,7 +67,8 @@
       'type'
     ],
     components: {
-      Icon
+      Icon,
+      Toolbar
     },
     data() {
       return {
@@ -96,11 +97,6 @@
             image: null,
           }
         }
-      }
-    },
-    methods: {
-      remove(id) {
-        this.$emit('remove', id)      
       }
     }
   }

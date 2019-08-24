@@ -1,6 +1,6 @@
 <template>
     <div class="relative z-50">
-        <component @remove="remove" v-for="block in blocks" v-bind:is="block.type" :id="block.id" :key="block.id" :type="block.option"></component>
+        <component class="relative" v-for="block in blocks" v-bind:is="block.type" :id="block.id" :key="block.id" :type="block.option"></component>
     </div>
 </template>
 
@@ -29,11 +29,6 @@
         blocks () {
             return this.$store.state.landing.blocks
         }
-    },
-    methods: {
-        remove(id) {
-         this.$store.commit('landing/remove', id)
-        }  
     }
   }
 </script>

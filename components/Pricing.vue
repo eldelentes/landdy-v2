@@ -1,5 +1,7 @@
 <template>
   <section class="section">
+    <Toolbar :id="id" />
+
     <div v-if="type === 'simple'" class="py-5">
       <div class="w-11/12 mx-auto">
         <div class="text-center pb-5">
@@ -36,14 +38,17 @@
 
 <script>
   import Icon from '~/components/Icon.vue'
+  import Toolbar from '~/components/Toolbar.vue'
 
   export default {
     name: 'Pricing',
     components: {
-      Icon
+      Icon,
+      Toolbar,
     },
     props: [
-      'type'
+      'type',
+      'id'
     ],
     data() {
       return {
