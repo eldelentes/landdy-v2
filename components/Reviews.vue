@@ -1,6 +1,8 @@
 <template>
   <section class="section">
 
+    <button class="right-0 absolute bg-white p-1 shadow text-red-500 rounded font-bold" v-on:click="remove(id)">Remove</button>
+
     <div class="py-5 flex items-center justify-center" v-if="type === 'simple'">
       <div class="text-center w-11/12 md:w-1/2">
         <div class="flex justify-center">
@@ -60,6 +62,10 @@
   
   export default {
     name: 'Reviews',
+    props: [
+      'id',
+      'type'
+    ],
     components: {
       Icon
     },
@@ -92,9 +98,11 @@
         }
       }
     },
-    props: [
-      'type',
-    ]
+    methods: {
+      remove(id) {
+        this.$emit('remove', id)      
+      }
+    }
   }
 </script>
 

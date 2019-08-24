@@ -1,5 +1,7 @@
 <template>
   <section class="section">
+    <button class="right-0 absolute bg-white p-1 shadow text-red-500 rounded font-bold" v-on:click="remove(id)">Remove</button>
+
     <div v-if="type === 'simple'" class="py-5">
       <div class="w-11/12 md:w-1/2 mx-auto text-center pb-5">
         <h4 class="subtitle font-title font-bold text-xl">{{ subtitle }}</h4>
@@ -20,7 +22,8 @@
   export default {
     name: 'Columns',
     props: [
-      'type'
+      'type',
+      'id'
     ],
     data(){
       return {
@@ -48,6 +51,11 @@
             text: "Use the power of Webflow CMS to add dynamic content. The whole structure is configured and ready to go. Learn more about Webflow CMS."
           }
         }
+      }
+    },
+    methods: {
+      remove(id) {
+        this.$emit('remove', id)      
       }
     }
   }

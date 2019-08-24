@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div v-for="variant in variants">
+    <div v-for="option in options">
       <div class="h-48 w-64 bg-gray-500 flex items-center justify-center rounded-lg mb-2">
-        <button value="1" @click="selectOption(variant.name)" class="bg-black text-white rounded p-2 font-bold">Seleccionar</button>
+        <h3>{{ option.name }}</h3>
+        <button value="1" @click="addBlock(option.type ,option.name)" class="bg-black text-white rounded p-2 font-bold">Seleccionar</button>
       </div>
     </div>
   </div>
@@ -11,18 +12,27 @@
 <script>
   export default {
     name: 'Options',
+    props: [
+      'componentId'
+    ],
     data: function () {
       return {
-        variants: {
-          1: { name: 'Cover' },
-          2: { name: 'Form' },
-          3: { name: 'Split' }
-        }
+        id: 1,
+      }
+    },
+    created() {
+      // console.log(this.componentId);
+    },
+    computed: {
+      options () {
+        let i = this.componentId;
+        return this.$store.state.components.list[i].types
       }
     },
     methods: {
-      selectOption(value){
-        console.log(value)
+      addBlock: function(type , option, id) {
+        this.id++
+        this.$store.commit('landing/add', {type , option, id: this.id} )
       }
     }
   }

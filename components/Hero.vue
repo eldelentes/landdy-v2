@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="relative">
+      <button class="right-0 absolute bg-white p-1 shadow text-red-500 rounded font-bold z-20" v-on:click="remove(id)">Remove</button>
       <div v-if="type === 'form'">
         <section class="min-h-screen flex items-center bg-gray-500 bg-cover bg-center" v-bind:style="{ backgroundImage: `url(${cover})` }">
           <div class="w-11/12 mx-auto max-w-6xl flex flex-col md:flex-row justify-center py-20 relative z-20">
@@ -34,7 +35,7 @@
             </div>
 
           </div>
-          <div class="inset-0 absolute" v-bind:style="{ background: coverGradient }"></div>
+          <div class="inset-0 absolute z-10" v-bind:style="{ background: coverGradient }"></div>
         </section>
       </div>
 
@@ -48,7 +49,7 @@
             </div>
           </div>
           <div class="h-64 md:h-full w-full md:w-1/2 overflow-hidden relative bg-cover bg-center " v-bind:style="{ backgroundImage: `url(${cover})` }">
-            <div class="inset-0 absolute" v-bind:style="{ background: coverGradient }"></div>
+            <div class="inset-0 absolute z-10" v-bind:style="{ background: coverGradient }"></div>
           </div>
         </section>
       </div>
@@ -60,7 +61,7 @@
               <h2 class="text-5xl md:text-5xl font-bold leading-tight py-2 font-title title">{{ title }}</h2>
               <button class="button font-bold text-white text-xl text-center px-6 py-3 rounded-full">Solicitar Cotización</button>
           </div>
-          <div class="inset-0 absolute" v-bind:style="{ background: coverGradient }"></div>
+          <div class="inset-0 absolute z-10" v-bind:style="{ background: coverGradient }"></div>
         </section>
       </div>
 
@@ -81,11 +82,17 @@
     props: [
       'type',
       'bgColor_A',
-      'bgColor_B'
+      'bgColor_B',
+      'id'
     ],
     computed: {
       coverGradient(){
         return `linear-gradient(0deg, ${ this.bgColor_B } 0%, ${ this.bgColor_A } 100%)`
+      }
+    },
+    methods: {
+      remove(id) {
+        this.$emit('remove', id)      
       }
     }
   }
